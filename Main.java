@@ -75,7 +75,11 @@ public class Main {
         String newName = scanner.nextLine();
         System.out.print("Please enter the new phone number: ");
         String phoneNumber = scanner.nextLine();
-        mobilePhone.updateContact(name, newName, phoneNumber);
+        if(mobilePhone.findContact(newName) == -1) {
+            mobilePhone.updateContact(name, newName, phoneNumber);
+        } else {
+            System.out.printf("A contact with name %s already exists\n", newName);
+        }
     }
 
     public static void findContactByName() {
